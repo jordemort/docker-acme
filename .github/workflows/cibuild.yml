@@ -43,8 +43,8 @@ jobs:
 
       - name: Pull cached containers
         run: |
-          docker pull --quiet "$CONTAINER_NAME" || true
-          docker pull --quiet "$CACHE_NAME" || true
+          docker pull --platform "$PLATFORMS" --quiet "$CONTAINER_NAME" || true
+          docker pull --platform "$PLATFORMS" --quiet "$CACHE_NAME" || true
 
       - name: Build and push container
         run: |
